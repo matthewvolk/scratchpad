@@ -2,10 +2,21 @@
   "name": "scratchpad",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "lint": "eslint"
+  },
   "devDependencies": {
-    "@types/bun": "latest"
+    "@eslint/js": "^9.7.0",
+    "@types/bun": "latest",
+    "@types/eslint__js": "^8.42.3",
+    "eslint": "^9.7.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "prettier": "^3.3.3",
+    "typescript-eslint": "^7.16.1"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
-  }
+    "typescript": "^5.5.3"
+  },
+  "packageManager": "bun@1.1.20"
 }
