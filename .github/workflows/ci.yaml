@@ -4,22 +4,29 @@ on:
   push:
     branches: [main]
   pull_request:
-    types: [opened, synchronize, reopened]
+    types: [opened, synchronize]
 
 jobs:
   lint-and-typecheck:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - run: |
-          bun_version=$(cat package.json | jq -r '.packageManager' | sed 's/^bun@//')
-          echo "bun_version=${bun_version}" >> $GITHUB_ENV
+      - uses: pnpm/action-setup@v3
 
-      - uses: oven-sh/setup-bun@v1
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
         with:
-          bun-version: ${{ env.bun_version }}
+          node-version-file: ".nvmrc"
+          cache: "pnpm"
 
-      - run: bun install
-      - run: bun lint
-      - run: bun typecheck
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm run lint
+
+      - name: Typecheck
+        run: pnpm run typecheck
