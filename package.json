@@ -6,7 +6,8 @@
   "bin": "src/index.js",
   "packageManager": "pnpm@9.12.3",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "lint": "eslint"
   },
   "devDependencies": {
     "@eslint/js": "^9.14.0",
