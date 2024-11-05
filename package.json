@@ -4,6 +4,7 @@
   "type": "module",
   "main": "src/index.js",
   "bin": "src/index.js",
+  "packageManager": "pnpm@9.12.3",
   "scripts": {
     "start": "node src/index.js"
   }
