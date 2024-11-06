@@ -18,5 +18,10 @@
     "globals": "^15.12.0",
     "prettier": "^3.3.3",
     "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "@commander-js/extra-typings": "^12.1.0",
+    "commander": "^12.1.0",
+    "zod": "^3.23.8"
   }
 }
